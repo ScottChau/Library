@@ -8,5 +8,28 @@
     <script src="script.js" defer></script>
     <title>Scott's Library</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>Welcome to <span class="highlight">Scott's</span> Library!</h1>
+      <button data-modal-target="#modal" class="btn btn_newbook">
+        Press me to create new book
+      </button>
+    </header>
+    <!-- Popup window -->
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <div class="title">New Book</div>
+        <button data-close-button class="close-button">&times;</button>
+      </div>
+      <div class="modal-body">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione non
+        molestias iure vero corrupti sit delectus optio impedit ab, consectetur
+        doloremque commodi earum quae? Exercitationem officia quibusdam
+        consequatur cumque itaque.
+      </div>
+    </div>
+    <div id="overlay"></div>
+    <!-- Popup window -->
+    <div class="book_section"></div>
+  </body>
 </html>
