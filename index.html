@@ -21,12 +21,20 @@
         <div class="title">New Book</div>
         <button data-close-button class="close-button">&times;</button>
       </div>
-      <div class="modal-body">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione non
-        molestias iure vero corrupti sit delectus optio impedit ab, consectetur
-        doloremque commodi earum quae? Exercitationem officia quibusdam
-        consequatur cumque itaque.
-      </div>
+      <form class="new-book-form" action="#" method="get">
+        <div class="modal-body">
+          <label class="form" for="author">Author: </label>
+          <input class="form" type="text" id="author" />
+          <label class="form" for="title">Title: </label>
+          <input class="form" type="text" id="title" />
+          <label class="form" for="number-of-pages">Number of pages: </label>
+          <input class="form" type="text" id="number-of-pages" />
+          <label class="form" for="read-yet">Have you read yet? </label>
+          <input class="form" type="checkbox" id="read-yet" />
+          <button id="submit" type="submit">Submit</button>
+          <button id="reset" type="reset">Reset</button>
+        </div>
+      </form>
     </div>
     <div id="overlay"></div>
     <!-- Popup window -->

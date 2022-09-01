@@ -1,3 +1,5 @@
+// popup window
+
 const openModalButtons = document.querySelectorAll("[data-modal-target]");
 const closeModalButtons = document.querySelectorAll("[data-close-button]");
 const overlay = document.getElementById("overlay");
@@ -6,6 +8,7 @@ openModalButtons.forEach((button) => {
   button.addEventListener("click", () => {
     // dataset allows to open all of the data attributes
     const modal = document.querySelector(button.dataset.modalTarget);
+
     openModal(modal);
   });
 });
@@ -17,8 +20,8 @@ overlay.addEventListener("click", () => {
 
 closeModalButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    // dataset allows to open all of the data attributes
     const modal = button.closest(".modal");
+    console.log(modal);
     closeModal(modal);
   });
 });
@@ -34,3 +37,62 @@ function closeModal(modal) {
   modal.classList.remove("active");
   overlay.classList.remove("active");
 }
+
+// popup window
+
+const author = document.getElementById("author");
+const title = document.getElementById("title");
+const pages = document.getElementById("number-of-pages");
+const readYet = document.getElementById("read-yet");
+const submit = document.getElementById("submit");
+const reset = document.getElementById("reset");
+const bookSection = document.querySelector(".book_section");
+
+reset.addEventListener("click", () => {
+  author.value = "";
+  title.value = "";
+  pages.value = "";
+  readYet.value = "";
+});
+
+function book(author, title, pages, readYet) {
+  this.author = author;
+  this.title = title;
+  this.pages = pages;
+  this.readYet = readYet;
+}
+
+const library = [];
+submit.addEventListener("click", () => {
+  const addBookToLibrary = new book(
+    author.value,
+    title.value,
+    pages.value,
+    readYet.value
+  );
+  library.push(addBookToLibrary);
+  const newDiv = document.createElement("div");
+  const deleteButton = document.createElement("button");
+  deleteButton.textContent = "Remove";
+  deleteButton.addEventListener("click", () => bookSection.removeChild(newDiv));
+  deleteButton.classList = "delete-button";
+  const newAuthor = document.createTextNode(
+    `Author: ${addBookToLibrary.author} `
+  );
+  const newTitle = document.createTextNode(`Title: ${addBookToLibrary.title}`);
+  const newPages = document.createTextNode(`Pages: ${addBookToLibrary.pages}`);
+
+  newDiv.appendChild(newAuthor);
+  newDiv.appendChild(document.createElement("br"));
+  newDiv.appendChild(newTitle);
+  newDiv.appendChild(document.createElement("br"));
+  newDiv.appendChild(newPages);
+  newDiv.appendChild(document.createElement("br"));
+  newDiv.appendChild(deleteButton);
+  bookSection.appendChild(newDiv);
+
+  author.value = "";
+  title.value = "";
+  pages.value = "";
+  readYet.value = "";
+});

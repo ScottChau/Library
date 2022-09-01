@@ -74,7 +74,17 @@ header {
 }
 
 .modal-body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   padding: 10px 15px;
+  height: 200px;
+  grid-gap: 10px;
+}
+
+.modal-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #overlay {
@@ -96,3 +106,23 @@ header {
 }
 
 /* popup window */
+
+.book_section {
+  margin: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 50px;
+}
+
+.book_section div {
+  font-size: 20px;
+  padding: 20px;
+  height: 150px;
+  width: 150px;
+  border: 1px solid black;
+}
+
+.delete-button {
+  margin-top: 60px;
+  width: 150px;
+}
