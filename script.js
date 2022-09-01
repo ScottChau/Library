@@ -73,9 +73,28 @@ submit.addEventListener("click", () => {
   library.push(addBookToLibrary);
   const newDiv = document.createElement("div");
   const deleteButton = document.createElement("button");
+  const readButton = document.createElement("button");
+  // delete button
   deleteButton.textContent = "Remove";
   deleteButton.addEventListener("click", () => bookSection.removeChild(newDiv));
   deleteButton.classList = "delete-button";
+  // read button
+  readButton.textContent = "Read";
+  readButton.classList = "read-button";
+  if (readYet.checked === false) {
+    readButton.style.backgroundColor = "red";
+  } else {
+    readButton.style.backgroundColor = "green";
+  }
+
+  readButton.addEventListener("click", () => {
+    if (readButton.style.backgroundColor === "red") {
+      readButton.style.backgroundColor = "green";
+    } else {
+      readButton.style.backgroundColor = "red";
+    }
+  });
+
   const newAuthor = document.createTextNode(
     `Author: ${addBookToLibrary.author} `
   );
@@ -88,7 +107,10 @@ submit.addEventListener("click", () => {
   newDiv.appendChild(document.createElement("br"));
   newDiv.appendChild(newPages);
   newDiv.appendChild(document.createElement("br"));
+  newDiv.appendChild(readButton);
+  newDiv.appendChild(document.createElement("br"));
   newDiv.appendChild(deleteButton);
+
   bookSection.appendChild(newDiv);
 
   author.value = "";
