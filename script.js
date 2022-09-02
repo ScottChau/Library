@@ -83,15 +83,19 @@ submit.addEventListener("click", () => {
   readButton.classList = "read-button";
   if (readYet.checked === false) {
     readButton.style.backgroundColor = "red";
+    readButton.textContent = "Not Read";
   } else {
     readButton.style.backgroundColor = "green";
+    readButton.textContent = "Read";
   }
 
   readButton.addEventListener("click", () => {
     if (readButton.style.backgroundColor === "red") {
       readButton.style.backgroundColor = "green";
+      readButton.textContent = "Read";
     } else {
       readButton.style.backgroundColor = "red";
+      readButton.textContent = "Not Read";
     }
   });
 
@@ -117,4 +121,7 @@ submit.addEventListener("click", () => {
   title.value = "";
   pages.value = "";
   readYet.value = "";
+
+  modal.classList.remove("active");
+  overlay.classList.remove("active");
 });

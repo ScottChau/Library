@@ -21,20 +21,20 @@
         <div class="title">New Book</div>
         <button data-close-button class="close-button">&times;</button>
       </div>
-      <form class="new-book-form" action="#" method="get">
-        <div class="modal-body">
+      <div class="new-book-form">
+        <form class="modal-body">
           <label class="form" for="author">Author: </label>
-          <input class="form" type="text" id="author" />
+          <input class="form" type="text" id="author" required />
           <label class="form" for="title">Title: </label>
-          <input class="form" type="text" id="title" />
+          <input class="form" type="text" id="title" required />
           <label class="form" for="number-of-pages">Number of pages: </label>
-          <input class="form" type="text" id="number-of-pages" />
+          <input class="form" type="number" id="number-of-pages" required />
           <label class="form" for="read-yet">Have you read yet? </label>
           <input class="form" type="checkbox" id="read-yet" />
           <button id="submit" type="submit">Submit</button>
           <button id="reset" type="reset">Reset</button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
     <div id="overlay"></div>
     <!-- Popup window -->
