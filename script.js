@@ -47,6 +47,7 @@ const readYet = document.getElementById("read-yet");
 const submit = document.getElementById("submit");
 const reset = document.getElementById("reset");
 const bookSection = document.querySelector(".book_section");
+const form = document.querySelector(".modal-body");
 
 reset.addEventListener("click", () => {
   author.value = "";
@@ -62,15 +63,19 @@ function book(author, title, pages, readYet) {
   this.readYet = readYet;
 }
 
+// submit button has to be attached with form
 const library = [];
-submit.addEventListener("click", () => {
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
   const addBookToLibrary = new book(
     author.value,
     title.value,
     pages.value,
     readYet.value
   );
+
   library.push(addBookToLibrary);
+
   const newDiv = document.createElement("div");
   const deleteButton = document.createElement("button");
   const readButton = document.createElement("button");
