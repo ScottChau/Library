@@ -104,21 +104,20 @@ form.addEventListener("submit", (e) => {
     }
   });
 
-  const newAuthor = document.createTextNode(
-    `Author: ${addBookToLibrary.author} `
+  const newAuthor = document.createElement("p");
+  newAuthor.appendChild(
+    document.createTextNode(`Author: ${addBookToLibrary.author} `)
   );
-  const newTitle = document.createTextNode(`Title: ${addBookToLibrary.title}`);
-  const newPages = document.createTextNode(`Pages: ${addBookToLibrary.pages}`);
+  const newTitle = document.createElement("p");
+  newTitle.appendChild(
+    document.createTextNode(`Title: ${addBookToLibrary.title}`)
+  );
+  const newPage = document.createElement("p");
+  newPage.appendChild(
+    document.createTextNode(`Pages: ${addBookToLibrary.pages}`)
+  );
 
-  newDiv.appendChild(newAuthor);
-  newDiv.appendChild(document.createElement("br"));
-  newDiv.appendChild(newTitle);
-  newDiv.appendChild(document.createElement("br"));
-  newDiv.appendChild(newPages);
-  newDiv.appendChild(document.createElement("br"));
-  newDiv.appendChild(readButton);
-  newDiv.appendChild(document.createElement("br"));
-  newDiv.appendChild(deleteButton);
+  newDiv.append(newAuthor, newTitle, newPage, readButton, deleteButton);
 
   bookSection.appendChild(newDiv);
 

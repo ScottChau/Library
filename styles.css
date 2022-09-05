@@ -133,3 +133,11 @@ header {
   width: 150px;
   margin-top: 10px;
 }
+
+.book_section div {
+  display: block;
+}
+
+.book_section div p {
+  margin: 0;
+}
